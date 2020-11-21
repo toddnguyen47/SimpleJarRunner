@@ -2,6 +2,8 @@ use std::io::prelude::Read;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
+use crate::java_command::CommandFactory;
+
 pub struct ExecJar;
 
 impl ExecJar {
@@ -11,7 +13,7 @@ impl ExecJar {
 
   pub fn execute(&self, args: &[String]) {
     let mut path = self.get_cur_exec_path();
-    path.push("java");
+    path.push(CommandFactory::get_java_command());
 
     let mut cmd_line_args = Vec::<String>::new();
     cmd_line_args.push("-jar".to_string());
