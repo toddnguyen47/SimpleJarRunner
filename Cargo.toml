@@ -10,3 +10,6 @@ version = "0.1.1"
 winres = "*"
 
 [dependencies]
+
+[profile.release]
+lto = true

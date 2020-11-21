@@ -9,6 +9,6 @@ fn main() {
       .set("FileDescription", "Java JAR Binary")
       .set("InternalName", "javajar.exe")
       .set("ProductName", "JavaJar");
-    res.compile().unwrap();
+    res.compile().expect("Cannot compile winres");
   }
 }
